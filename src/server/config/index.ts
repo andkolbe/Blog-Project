@@ -8,5 +8,8 @@ export default {
         user: process.env.DB_USER,
         password: process.env.DB_PASS,
         database: process.env.DB_SCHEMA
+    },
+    app: {
+        prefix: process.env.API_PREFIX // this will hide the /api route data from any randos who go on the web page and try to type it in the url bar it
     }
 }

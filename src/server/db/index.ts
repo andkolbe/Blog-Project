@@ -1,13 +1,22 @@
 import * as mysql from 'mysql'; // must use ' * as ' if you are importing a library
 import config from '../config';
+import authors from './queries/authors';
+import blogs from './queries/blogs';
+import blogtags from './queries/blogtags';
+import tags from './queries/tags';
+
+const pool = mysql.createPool(config.mysql); // pool automaticaly handles the handshaking Connection process for us // createPool is a function that takes an object as its argument
+// This is how we connect our database to our project
 
 
 
-const pool = mysql.createPool(config.mysql);
+export const Query = <T = any>(query: string, values?: any) => { // <T = any> means pass in a generic if there is one, otherwise, default to type of any
+    return new Promise<T>((resolve, reject) => {
 
-export const Query = (query, values?: any) => {
-    return new Promise((resolve, reject) => {
-        pool.query(query, values, (err, results) => {
+        const sql = mysql.format(query, values); // debugging utility
+        // console.log(sql);
+
+        pool.query(sql, (err, results) => {
             if (err) {
                 reject(err)
             } else {
@@ -17,9 +26,11 @@ export const Query = (query, values?: any) => {
     })
 }
 
-import blogs from './queries/blogs';
-
-export default {
-    blogs
+export default { // we import and export our queries on this page for convenience when writing them out
+    authors,
+    blogs,
+    blogtags,
+    tags
 }
+
 

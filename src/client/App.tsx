@@ -1,63 +1,47 @@
 import * as React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import Details from './views/Details';
+import Home from './views/Home';
+import NewPost from './views/NewPost';
+import NotFound from './views/NotFound';
 
-class App extends React.Component<IAppProps, IAppState> {
-	constructor(props: IAppProps) {
-		super(props);
-		this.state = {
-			name: null
-		};
-	}
+const App: React.FC<AppProps> = (props, state) => {
 
-	async componentDidMount() {
-		try {
-			let r = await fetch('/api/hello');
-			let name = await r.json();
-			this.setState({ name });
-		} catch (error) {
-			console.log(error);
-		}
-	}
-
-	render() {
-		return (
-			<main className="container my-5">
-				<h1 className="text-primary text-center">Hello {this.state.name}!</h1>
-			</main>
-		);
-	}
+	return (
+		<BrowserRouter>
+		<NavBar />
+			<Switch>
+				<Route exact path='/'>
+					<Home />
+				</Route>
+				<Route exact path='/post'>
+					<NewPost />
+				</Route>
+				<Route exact path='/details'>
+					<Details />
+				</Route>
+				<Route exact path='*'>
+					<NotFound />
+				</Route>
+			</Switch>
+		</BrowserRouter>
+	);
 }
 
-export interface IAppProps {}
-
-export interface IAppState {
-	name: string;
-}
+// interface is a way to define a type 
+interface AppProps {} // this is blank because App in index.tsx is not recieving any props
 
 export default App;
 
-//
-// const App = (props: AppProps) => {
-// 	const [greeting, setGreeting] = React.useState<string>('');
+// BrowserRouter can be renamed anything
+// think of Switch like a switch board
+// Route is not self closing when using Hooks
+// path reads the url bar
+// Route paths need to have the word exact or they will only route in alphbetical order
+// you can render NavBar above Switch. Switch acts like the body of the page
+// NavBar won't re render because it is above the Switch
 
-// 	React.useEffect(() => {
-// 		(async () => {
-// 			try {
-// 				const res = await fetch('/api/hello');
-// 				const greeting = await res.json();
-// 				setGreeting(greeting);
-// 			} catch (error) {
-// 				console.log(error);
-// 			}
-// 		})();
-// 	}, []);
+// hitting enter on a url bar executes a GET request to a server
 
-// 	return (
-// 		<div className="min-vh-100 d-flex justify-content-center align-items-center">
-// 			<h1 className="display-1">Hello {greeting}!</h1>
-// 		</div>
-// 	);
-// };
 
-// interface AppProps {}
-
-// export default App;
