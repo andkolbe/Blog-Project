@@ -1,4 +1,5 @@
-import { Query } from '../';
+/*
+import { Query } from '../db';
 
 const all = () => Query('', []);
 const one = () => Query('', []);
@@ -15,3 +16,4 @@ export default {
     destroy,
     find
 }
+*/

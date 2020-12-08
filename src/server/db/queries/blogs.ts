@@ -1,4 +1,4 @@
-import { Query } from '../index';
+import { Query } from '../';
 import type { CannedResponse, TBlogs } from '../models';
 
 const all = () => Query<TBlogs[]>('SELECT blogs.*, authors.name FROM blogs JOIN authors ON authors.id = blogs.authorid ORDER BY blogs.created_at DESC');

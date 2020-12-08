@@ -1,9 +1,15 @@
 $theme-colors: (
-    'primary': #0091ea //Covalence Blue!  :D
+    'primary': #8094DE,
+    'secondary': #7E7AB6,
+    'info': #9EA8B3,
+    'success': #334B83,
+    'warning': #F7F7F6
 );
 
-html {
-    filter: invert(0.8);
+.btn {
+    cursor: pointer;
+    font-weight: bold;
 }
+
 
 @import '../../../node_modules/bootstrap/scss/bootstrap.scss';

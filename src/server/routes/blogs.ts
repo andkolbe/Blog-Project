@@ -3,7 +3,6 @@ import db from '../db'; // points to the index.ts file in the db folder
 
 const router = Router();
 
-
 router.get('/:id?', async (req, res) => {
     const id = Number(req.params.id); // will respond with NaN if a number isn't provided. NaN === falsy
     try {
@@ -54,6 +53,5 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json({ msg: 'this sucks', error: error.message })
     }
 })
-
 
 export default router;

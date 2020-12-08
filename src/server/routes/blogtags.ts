@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import db from '../db';
-import blogtags from '../db/queries/blogtags'
+
 
 const router = Router();
 

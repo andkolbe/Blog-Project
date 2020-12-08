@@ -15,10 +15,10 @@ const App: React.FC<AppProps> = (props, state) => {
 				<Route exact path='/'>
 					<Home />
 				</Route>
-				<Route exact path='/post'>
+				<Route exact path='/new'>
 					<NewPost />
 				</Route>
-				<Route exact path='/details'>
+				<Route exact path='/details/:id'>
 					<Details />
 				</Route>
 				<Route exact path='*'>
