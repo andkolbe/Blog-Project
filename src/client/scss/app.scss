@@ -11,5 +11,9 @@ $theme-colors: (
     font-weight: bold;
 }
 
+body {
+    background-color: #edf2f2 !important;
+}
+
 
 @import '../../../node_modules/bootstrap/scss/bootstrap.scss';
