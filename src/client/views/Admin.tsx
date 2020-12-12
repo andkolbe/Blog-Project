@@ -73,10 +73,10 @@ const Admin: React.FC<AdminProps> = props => {
                 </select>
                 <label className="mt-4 font-weight-bold">Content</label>
                 <textarea placeholder="write content here..." value={content} onChange={e => setContent(e.target.value)} rows={12} className="form-control my-1 bg-warning"></textarea>
-                <Link className="btn btn-outline-secondary btn-lg" to={`/details/${id}`}>Go Back</Link>
-                <div>
-                    <button onClick={editBlog} className="btn btn-success mt-4 font-weight-bold">Submit</button>
-                    <button onClick={deleteBlog} className="btn btn-success mt-4 font-weight-bold">Delete</button>
+                <div className="d-flex justify-content-between mt-4">
+                    <button onClick={editBlog} className="btn btn-success">Submit</button>
+                    <Link className="btn btn-success" to={`/details/${id}`}>Go Back</Link>
+                    <button onClick={deleteBlog} className="btn font-weight-bold text-danger">Delete</button>
                 </div>
             </form>
         </Layout>

@@ -35,15 +35,15 @@ const Details: React.FC<DetailsProps> = props => {
                     <div className="card">
                         <img src="..." className="card-img-top" alt="..." />
                         <div className="card-body">
-                            <h5 className="card-title">{blog?.title}</h5> 
+                            <h5 className="d-flex card-title justify-content-center align-items-center">{blog?.title}</h5> 
                             <div>
                                 {blogtags?.map(blogtag => (
-                                    <span className="badge badge-secondary" key={`blogtag-${blogtag.id}`} >{blogtag.name}</span>
+                                    <span className="badge badge-primary mb-3 p-2" key={`blogtag-${blogtag.id}`} >{blogtag.name}</span>
                                 ))}
                             </div>
                             <p className="card-text">{blog?.content}</p>
-                            <button onClick={() => history.goBack()} className="btn btn-danger btn-sm">Go Back</button>
-                            <Link className="btn btn-outline-secondary" to={`/admin/${id}`}>Edit / Delete</Link>
+                            <button onClick={() => history.push('/')} className="btn btn-success mr-4">Go Back</button>
+                            <Link className="btn btn-secondary" to={`/admin/${id}`}>Edit / Delete</Link>
                         </div> 
                     </div> 
                 </div> 
