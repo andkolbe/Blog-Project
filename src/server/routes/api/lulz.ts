@@ -2,9 +2,7 @@ import { Router } from 'express';
 
 const router = Router();
 
-//router.use();
-router.post('/', async (req, res) => {
-    res.json('TEST');
-})
+// GET /api/lulz
+router.get('/', (req, res) => res.json({ msg: 'LULZ' }));
 
 export default router;

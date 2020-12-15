@@ -1,6 +1,10 @@
 import * as dotenv from 'dotenv';
 
-dotenv.config();
+const envFound = dotenv.config();
+
+if (!envFound) { // don't run the application if there isn't a .env file
+    throw new Error('You need to add a .env file');
+}
 
 export default {
     mysql: {

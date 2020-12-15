@@ -5,7 +5,6 @@ import * as cors from 'cors';
 import * as morgan from 'morgan';
 import * as path from 'path';
 import routes from './routes';
-import config from './config';
 
 const app = express();
 
@@ -15,7 +14,7 @@ app.use(cors());
 app.use(morgan('dev')); // every incoming route passes through morgan so it logs all activity across the server
 app.use(express.static('public'));
 app.use(express.json()); // body parser
-app.use(config.app.prefix, routes); // this will hide the /api route data from any randos who go on the web page and try to type it in the url bar it
+app.use(routes); 
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../public/index.html'))); // our code is actually running from dist/server.js
 // tells the server: if a route doesn't start with /api, get out of the way, ignore it, it's front end
 

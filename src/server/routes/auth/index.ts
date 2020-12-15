@@ -1,10 +1,8 @@
 import { Router } from 'express';
+import registerRouter from './register';
 
 const router = Router();
 
-//router.use();
-router.post('/', async (req, res) => {
-    res.json('TEST');
-})
+router.use('/register', registerRouter)
 
 export default router;

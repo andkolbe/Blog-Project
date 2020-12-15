@@ -3,10 +3,10 @@ import db from '../db';
 
 const router = Router();
 
-router.get('/', async (req, res) => { // callback function that runs after the router finds /
+router.get('/', async (req, res) => { // callback function to the database that runs after the router finds /
     try {
         const authors = await db.authors.all(); // gets all the authors stored in the database
-        res.json(authors); // converts json to javascript
+        res.json(authors); // converts json to javascript and displays them
     } catch (error) {
         console.log(error);
         res.status(500).json({ msg: 'Nope', error: error.message })

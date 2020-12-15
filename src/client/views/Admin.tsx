@@ -27,7 +27,7 @@ const Admin: React.FC<AdminProps> = props => {
             setContent(blog.content);
             setSelectedTagid(blogtags[0].id);
         })()
-    }, [id]) // rerender the view when the id changes
+    }, [id]) // rerender the useEffect whenever the id changes
 
     React.useEffect(() => {
         api('/api/tags').then(tags => setTags(tags))
@@ -57,7 +57,9 @@ const Admin: React.FC<AdminProps> = props => {
         if (res.ok && res2.ok) { // res.ok comes from a fetch response. it will check the status number from the server. ok will be true for 200-399 and false for 400-500
             history.push('/');
         }
-    }
+    };
+
+    // we pass these functions into our jsx code 
 
     return ( // return is always written after the methods
         <Layout>
