@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as moment from 'moment';
-import Layout from '../components/Layout';
 import { IBlog } from '../utils/Types';
 import { Link } from 'react-router-dom';
 
@@ -9,7 +8,6 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ blog }) => { // FC stands for
     return (
         <div className="col-md-4">
             <article className="card my-2 shadow ">
-                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" className="card-img-top" alt="Forest" />
                 <div className="card-body">
                     <h4 className="card-title">{blog.title}</h4>
                     <p className="card-text">{blog.content.substring(0, 125)}</p>

@@ -1,7 +1,7 @@
 /*
 import { Query } from '../db';
 
-const all = () => Query('', []);
+const all = () => Query('');
 const one = () => Query('', []);
 const insert = () => Query('', []);
 const update = () => Query('', []);

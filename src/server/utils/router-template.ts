@@ -3,7 +3,7 @@ import { Router } from 'express';
 const router = Router();
 
 //router.use();
-router.post('/', async (req, res) => {
+router.get('/', async (req, res) => {
     res.json('TEST');
 })
 

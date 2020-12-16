@@ -21,9 +21,9 @@ const App: React.FC<AppProps> = (props, state) => {
 				<Route exact path='/'>
 					<Home />
 				</Route>
-				<PrivateRoute exact path='/new'>
+				<Route exact path='/new'>
 					<NewPost />
-				</PrivateRoute>
+				</Route>
 				<Route exact path='/details/:id'>
 					<Details />
 				</Route>

@@ -18,7 +18,6 @@ router.post('/', async (req, res) => { // networking layer
     const authorDTO = req.body; 
     // DTO - a variable that holds the req.body so we don't pass the req.body from the networking layer directly into our query, which is the data layer
 
-    
     try {
         const { insertId } = await db.authors.insert(authorDTO);
         res.json({ msg: 'registered author', id: insertId })
