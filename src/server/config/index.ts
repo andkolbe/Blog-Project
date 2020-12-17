@@ -15,5 +15,9 @@ export default {
     },
     app: {
         prefix: process.env.API_PREFIX // this will hide the /api route data from any randos who go on the web page and try to type it in the url bar it
+    },
+    auth: {
+        secret: process.env.JWT_SECRET,
+        expires: process.env.JWT_EXPIRES
     }
 }

@@ -1,6 +1,7 @@
+import db from '../../db';
 import { Router } from 'express';
 import { generateHash } from '../../utils/passwords';
-import db from '../../db';
+import { createToken } from '../../utils/tokens';
 
 const router = Router();
 
@@ -11,7 +12,8 @@ router.post('/', async (req, res) => {
     // It takes the plain text password, passes it through to algorithm, and generates a hash and salted password, and then reassigns itself to itself
     try {
         const cannedResponse = await db.authors.insert(newAuthorDTO);
-        res.json(cannedResponse);
+        const token = createToken({ userid: cannedResponse.insertId }) // comes from interface IPayload
+        res.json(token);
     } catch (error) {
         console.log(error);
         res.status(500).json({ msg: 'Register Error', error })

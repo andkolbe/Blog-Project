@@ -42,7 +42,7 @@ router.put('/:blogid', async (req, res) => {
         const tags = req.body;
         const blogid = Number(req.params.blogid); // will respond with NaN if a number isn't provided. NaN === falsy
         await db.blogtags.update(tags.newId, tags.oldId, blogid);
-        res.json({ msg: 'blogtag(s) obliterated' });
+        res.json({ msg: 'blogtag(s) updated' });
     } catch (error) {
         console.log(error)
         res.status(500).json({ msg: 'my code sucks :(', error: error.message })

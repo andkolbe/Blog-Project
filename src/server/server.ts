@@ -4,7 +4,9 @@ import * as compression from 'compression';
 import * as cors from 'cors';
 import * as morgan from 'morgan';
 import * as path from 'path';
+import * as passport from 'passport';
 import routes from './routes';
+import './middlewares/passport-strategies'; // run this file after the server runs
 
 const app = express();
 
@@ -12,6 +14,7 @@ app.use(helmet()); // this should be at the top so everything else filters throu
 app.use(compression()); // everything after compression needs to be compressed
 app.use(cors());
 app.use(morgan('dev')); // every incoming route passes through morgan so it logs all activity across the server
+app.use(passport.initialize());
 app.use(express.static('public'));
 app.use(express.json()); // body parser
 app.use(routes); 

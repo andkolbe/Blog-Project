@@ -12,7 +12,7 @@ import NewPost from './views/NewPost';
 import NotFound from './views/NotFound';
 import Register from './views/Register';
 
-const App: React.FC<AppProps> = (props, state) => {
+const App: React.FC<AppProps> = props => {
 
 	return (
 		<BrowserRouter>
